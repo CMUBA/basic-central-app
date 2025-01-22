@@ -7,9 +7,9 @@ import Header from "@/components/header"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "NextAuth.js Example",
+  title: "Arcadia Smart Business",
   description:
-    "This is an example site to demonstrate how to use NextAuth.js for authentication",
+    "Arcadia Smart Business is a platform for merchants to create and manage coupons, and for players to redeem them using points.",
 }
 
 export default function RootLayout({ children }: React.PropsWithChildren) {

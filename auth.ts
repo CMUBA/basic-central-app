@@ -52,6 +52,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   debug: !!process.env.AUTH_DEBUG,
   theme: { logo: "https://authjs.dev/img/logo-sm.png" },
   adapter: UnstorageAdapter(storage),
+  pages: {
+    signOut: "/"
+  },
   providers: [
     // Apple,
     // Atlassian,
@@ -118,6 +121,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       if (pathname === "/middleware-example") return !!auth
       return true
     },
+    async signIn({ user, account, profile }) {
+      if (!user.email) return false
+      return true
+    },
     jwt({ token, trigger, session, account }) {
       if (trigger === "update") token.name = session.user.name
       if (account?.provider === "keycloak") {
@@ -125,11 +132,24 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       }
       return token
     },
-    async session({ session, token }) {
+    async session({ session, token, user }) {
       if (token?.accessToken) session.accessToken = token.accessToken
-
+      
+      // Add user verification status to session
+      if (session.user) {
+        session.user.isNewUser = !user
+      }
+      
       return session
     },
+    async redirect({ url, baseUrl }) {
+      // Always do user verification first
+      if (url.startsWith(baseUrl)) {
+        if (url.includes('/auth/signin')) return url
+        return `${baseUrl}/auth/verify`
+      }
+      return baseUrl
+    }
   },
   
   // experimental: { enableWebAuthn: true },
