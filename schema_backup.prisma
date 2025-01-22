@@ -1,0 +1,72 @@
+Prisma schema loaded from prisma/schema.prisma
+Environment variables loaded from .env
+Datasource "db": PostgreSQL database "coupon_db", schema "public" at "localhost:5432"
+
+- Introspecting based on datasource defined in prisma/schema.prisma
+✔ Introspected 12 models and wrote them into prisma/schema.prisma in 123ms
+      
+*** WARNING ***
+
+These fields were enriched with `@map` information taken from the previous Prisma schema:
+  - Model: "Account", field: "userId"
+  - Model: "Account", field: "providerAccountId"
+  - Model: "CouponCategory", field: "createdAt"
+  - Model: "CouponTemplate", field: "merchantId"
+  - Model: "CouponTemplate", field: "categoryId"
+  - Model: "CouponTemplate", field: "discountType"
+  - Model: "CouponTemplate", field: "discountValue"
+  - Model: "CouponTemplate", field: "totalQuantity"
+  - Model: "CouponTemplate", field: "remainingQuantity"
+  - Model: "CouponTemplate", field: "startDate"
+  - Model: "CouponTemplate", field: "endDate"
+  - Model: "CouponTemplate", field: "createdAt"
+  - Model: "CouponTemplate", field: "publishPrice"
+  - Model: "CouponTemplate", field: "sellPrice"
+  - Model: "IssuedCoupon", field: "templateId"
+  - Model: "IssuedCoupon", field: "userId"
+  - Model: "IssuedCoupon", field: "passCode"
+  - Model: "IssuedCoupon", field: "qrCode"
+  - Model: "IssuedCoupon", field: "usedAt"
+  - Model: "IssuedCoupon", field: "createdAt"
+  - Model: "IssuedCoupon", field: "buyPrice"
+  - Model: "MerchantProfile", field: "userId"
+  - Model: "MerchantProfile", field: "businessName"
+  - Model: "MerchantProfile", field: "pointsBalance"
+  - Model: "MerchantProfile", field: "createdAt"
+  - Model: "MerchantProfile", field: "updatedAt"
+  - Model: "PlayerProfile", field: "userId"
+  - Model: "PlayerProfile", field: "walletAddress"
+  - Model: "PlayerProfile", field: "createdAt"
+  - Model: "PlayerProfile", field: "updatedAt"
+  - Model: "PlayerProfile", field: "pointsBalance"
+  - Model: "PromotionType", field: "createdAt"
+  - Model: "PromotionType", field: "updatedAt"
+  - Model: "RechargeCode", field: "merchantId"
+  - Model: "RechargeCode", field: "usedAt"
+  - Model: "RechargeCode", field: "createdAt"
+  - Model: "Session", field: "sessionToken"
+  - Model: "Session", field: "userId"
+  - Model: "Transaction", field: "userId"
+  - Model: "Transaction", field: "createdAt"
+  - Model: "Transaction", field: "updatedAt"
+  - Model: "Transaction", field: "couponId"
+  - Model: "User", field: "createdAt"
+  - Model: "User", field: "updatedAt"
+  - Model: "User", field: "emailVerified"
+
+These models were enriched with `@@map` information taken from the previous Prisma schema:
+  - "Account"
+  - "CouponCategory"
+  - "CouponTemplate"
+  - "IssuedCoupon"
+  - "MerchantProfile"
+  - "PlayerProfile"
+  - "PromotionType"
+  - "RechargeCode"
+  - "Session"
+  - "Transaction"
+  - "User"
+  - "VerificationToken"
+
+Run prisma generate to generate Prisma Client.
+
